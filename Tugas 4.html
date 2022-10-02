@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="STATISTIK DESKRIPTIF" href="Tugas%201.html" />
+    <link rel="prev" title="KNN USING SCIKIT LEARN" href="Tugas%203.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -122,6 +122,20 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="Tugas%201.html">
    <strong>
     STATISTIK DESKRIPTIF
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas%202.html">
+   <strong>
+    DISKRITISASI
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas%203.html">
+   <strong>
+    KNN USING SCIKIT LEARN
    </strong>
   </a>
  </li>
@@ -365,7 +379,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0dcaabf4-1f19-4348-9109-b78e7058150a">
+  <div id="df-b015eb37-7c0d-4f0c-b681-bb5886097238">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -436,7 +450,7 @@ title="Print to PDF"
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-0dcaabf4-1f19-4348-9109-b78e7058150a')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-b015eb37-7c0d-4f0c-b681-bb5886097238')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -487,12 +501,12 @@ title="Print to PDF"
 
       <script>
         const buttonEl =
-          document.querySelector('#df-0dcaabf4-1f19-4348-9109-b78e7058150a button.colab-df-convert');
+          document.querySelector('#df-b015eb37-7c0d-4f0c-b681-bb5886097238 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-0dcaabf4-1f19-4348-9109-b78e7058150a');
+          const element = document.querySelector('#df-b015eb37-7c0d-4f0c-b681-bb5886097238');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -512,6 +526,66 @@ title="Print to PDF"
     </div>
   </div>
 </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">irisdata</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">])</span>
+<span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">irisdata</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">irisdata</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Running Kmeans</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+
+<span class="c1"># Number of clusters</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># Fitting the input data</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="c1"># Getting the cluster labels</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="c1"># Centroid values</span>
+<span class="n">centroids</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Checking the clustering accuracy</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+
+<span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Iris-setosa&#39;</span><span class="p">,</span> <span class="s1">&#39;Iris-versicolor&#39;</span><span class="p">,</span> <span class="s1">&#39;Iris-virginica&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">irisdata</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">],</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span><span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 precision    recall  f1-score   support
+
+    Iris-setosa       0.00      0.00      0.00        50
+Iris-versicolor       0.00      0.00      0.00        50
+ Iris-virginica       0.23      0.28      0.25        50
+
+       accuracy                           0.09       150
+      macro avg       0.08      0.09      0.08       150
+   weighted avg       0.08      0.09      0.08       150
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -542,11 +616,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Tugas%201.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Tugas%203.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><strong>STATISTIK DESKRIPTIF</strong></p>
+            <p class="prev-next-title"><strong>KNN USING SCIKIT LEARN</strong></p>
         </div>
     </a>
 </div>
