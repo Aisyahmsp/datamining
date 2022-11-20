@@ -17,11 +17,11 @@ st.write("""
 WELCOME TO PREDICT HEPATITIS C SYSTEM
 """)
 
-st.write("===========================================================================================")
+st.write("========================================================================================")
 
 tab1, tab2, tab3, tab4 = st.tabs(["Import Data", "Preprocessing", "Modelling", "Implementation"])
 
 with tab1:
     st.write("Data Hepatitis C")
-    data = pd.read_csv("https://raw.githubusercontent.com/Feb11F/dataset/main/credit_score.csv")
+    data = pd.read_csv("https://raw.githubusercontent.com/Aisyahmsp/datamining/main/HepatitisCdata.csv")
     st.dataframe(data)
