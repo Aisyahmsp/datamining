@@ -25,5 +25,3 @@ with tab1:
     st.write("Data Hepatitis C")
     data = pd.read_csv("https://raw.githubusercontent.com/Feb11F/dataset/main/credit_score.csv")
     st.dataframe(data)
-
-with tab2:
