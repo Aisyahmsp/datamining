@@ -14,7 +14,7 @@ from sklearn.datasets import make_classification
 from sklearn.svm import SVC
 
 st.write(""" 
-WELCOME TO PREDICT HEPATITIS C SYSTEM
+# WELCOME TO PREDICT HEPATITIS C SYSTEM
 """)
 
 st.write("========================================================================================")
