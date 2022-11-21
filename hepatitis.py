@@ -19,9 +19,13 @@ st.write("""
 
 st.write("========================================================================================")
 
-tab1, tab2, tab3, tab4 = st.tabs(["Import Data", "Preprocessing", "Modelling", "Implementation"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Deskripsi Data", "Dataset (Import Data)", "Preprocessing", "Modelling", "Implementasi"])
 
 with tab1:
+    st.write("HEPATITIS C DATASET")
+    st.write("Dataset ini berisi nilai laboratorium donor darah dan pasien Hepatitis C serta nilai demografi seperti usia")
+
+with tab2:
     st.write("Data Hepatitis C")
     data = pd.read_csv("https://raw.githubusercontent.com/Aisyahmsp/datamining/main/HepatitisCdata.csv")
     st.dataframe(data)
