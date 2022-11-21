@@ -24,6 +24,9 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Deskripsi Data", "Dataset (Import Data)
 with tab1:
     st.write("HEPATITIS C DATASET")
     st.write("Dataset ini berisi nilai laboratorium donor darah dan pasien Hepatitis C serta nilai demografi seperti usia")
+    st.write("Data ini digunakan untuk memodelkan penyakit Hepatitis C")
+    st.write("Fitur - Fitur dalam dataset ini yang akan digunakan ialah...")
+    st.write("Sumber Data : https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset")
 
 with tab2:
     st.write("Data Hepatitis C")
