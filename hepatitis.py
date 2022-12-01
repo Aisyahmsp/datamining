@@ -29,21 +29,10 @@ with tab1:
     st.write("Sumber Data : https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset")
 
 with tab2:
-    uploaded_file = st.file_uploader("Choose a file csv")
-    if uploaded_file is not None:
-        # To read file as bytes:
-        bytes_data = uploaded_file.getvalue()
-        st.write(bytes_data)
-
-        # To convert to a string based IO:
-        stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        st.write(stringio)
-
-        # To read file as string:
-        string_data = stringio.read()
-        st.write(string_data)
-
-        # Can be used wherever a "file-like" object is accepted:
-        data = pd.read_csv(uploaded_file)
-        st.dataframe(data)
+    st.write("""# Upload File""")
+    uploaded_files = st.file_uploader("Upload file CSV", accept_multiple_files=True)
+    for uploaded_file in uploaded_files:
+        df = pd.read_csv(uploaded_file)
+        st.write("Nama File Anda = ", uploaded_file.name)
+        st.dataframe(df)
 
