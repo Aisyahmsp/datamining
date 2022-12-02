@@ -59,10 +59,10 @@ with tab2:
         
 with tab3 : 
     st.write("""# Preprocessing""")
-    df[["Age", "Sex", "AST", "BIL", "CHE", "CREA", "GGT"]].agg(['min','max'])
+    df[["Age", "Sex", "ALB","ALP","ALT", "AST", "BIL", "CHE", "CHOL", "CREA", "GGT", "PROT"]].agg(['min','max'])
 
     df.Category.value_counts()
-    df = df.drop(columns=["Unnamed: 0","ALB","ALP","ALT","CHOL","PROT"])
+    df = df.drop(columns="Unnamed: 0"])
 
     X = df.drop(columns="Category")
     y = df.Category
