@@ -213,11 +213,9 @@ with tab5 :
     if sex == "Male":
         gen_Female = 0
         gen_Male = 1
-        gen_Other = 0
     else :
         gen_Female = 1
         gen_Male = 0
-        gen_Other = 0
     
     ALB = st.number_input('Masukkan Hasil Test ALB (Contoh : 46.9000)')
     ALP = st.number_input('Masukkan Hasil Test ALP (Contoh : 70.3000)')
@@ -236,7 +234,7 @@ with tab5 :
         # input
         inputs = np.array([[
             Age,
-            gen_Female, gen_Male, gen_Other,
+            gen_Female, gen_Male,
             ALB, ALP, ALT, AST,
             BIL, CHE, CHOL, CREA,
             GGT, PROT
