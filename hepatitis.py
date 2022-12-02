@@ -203,4 +203,57 @@ with tab4 :
         )
 
         st.altair_chart(bar_chart,use_container_width=True)
+        
+with tab5 :
+    st.write("# Implementation")
+    Age = st.number_input('Masukkan Umur Pasien (Contoh : 32)')
+
+    # Sex
+    sex = st.radio("Sex",('Male', 'Female')
+    if gender == "Male":
+        gen_Female = 0
+        gen_Male = 1
+        gen_Other = 0
+    elif gender == "Female" :
+        gen_Female = 1
+        gen_Male = 0
+        gen_Other = 0
+    
+    ALB = st.number_input('Masukkan Hasil Test ALB (Contoh : 46.9000)')
+    ALP = st.number_input('Masukkan Hasil Test ALP (Contoh : 70.3000)')
+    ALT = st.number_input('Masukkan Hasil Test ALT (Contoh : 7.7000)')
+    AST = st.number_input('Masukkan Hasil Test AST (Contoh : 17.8000)')
+    BIL = st.number_input('Masukkan Hasil Test BIL (Contoh : 9.6000)')
+    CHE = st.number_input('Masukkan Hasil Test CHE (Contoh : 5.8200)')
+    CHOL = st.number_input('Masukkan Hasil Test ALB (Contoh : 3.1900)')
+    CREA = st.number_input('Masukkan Hasil Test ALB (Contoh : 106.000)')
+    GGT = st.number_input('Masukkan Hasil Test ALB (Contoh : 46.800)')
+    PROT = st.number_input('Masukkan Hasil Test ALB (Contoh : 47.1000)')               
+
+
+
+    def submit():
+        # input
+        inputs = np.array([[
+            Age,
+            gen_Female, gen_Male, gen_Other,
+            ALB, ALP, ALT, AST,
+            BIL, CHE, CHOL, CREA,
+            GGT, PROT
+            ]])
+        # st.write(inputs)
+        # baru = pd.DataFrame(inputs)
+        # input = pd.get_dummies(baru)
+        # st.write(input)
+        # inputan = np.array(input)
+        # import label encoder
+        le = joblib.load("le.save")
+        model1 = joblib.load("nvklasifikasi.joblib")
+        y_pred3 = model1.predict(inputs)
+        st.write(f"Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {le.inverse_transform(y_pred3)[0]}")
+
+    all = st.button("Submit")
+    if all :
+        st.balloons()
+        submit()
 
