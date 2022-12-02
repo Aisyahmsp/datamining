@@ -241,12 +241,7 @@ with tab5 :
             BIL, CHE, CHOL, CREA,
             GGT, PROT
             ]])
-        # st.write(inputs)
-        # baru = pd.DataFrame(inputs)
-        # input = pd.get_dummies(baru)
-        # st.write(input)
-        # inputan = np.array(input)
-        # import label encoder
+
         le = joblib.load("le.save")
         model1 = joblib.load("nvklasifikasi.joblib")
         y_pred3 = model1.predict(inputs)
