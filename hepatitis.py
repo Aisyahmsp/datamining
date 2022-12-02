@@ -209,7 +209,7 @@ with tab5 :
     Age = st.number_input('Masukkan Umur Pasien (Contoh : 32)')
 
     # Sex
-    sex = st.radio("Sex",('Male', 'Female')
+    sex = st.radio("Sex",('Male', 'Female'))
     if sex == "Male":
         gen_Female = 0
         gen_Male = 1
