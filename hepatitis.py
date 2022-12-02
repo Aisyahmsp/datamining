@@ -62,7 +62,7 @@ with tab3 :
     df[["Age", "Sex", "ALB","ALP","ALT", "AST", "BIL", "CHE", "CHOL", "CREA", "GGT", "PROT"]].agg(['min','max'])
 
     df.Category.value_counts()
-    df = df.drop(columns="Unnamed: 0"])
+    df = df.drop(columns="Unnamed: 0")
 
     X = df.drop(columns="Category")
     y = df.Category
