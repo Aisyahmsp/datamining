@@ -25,17 +25,20 @@ with tab1:
     st.write("HEPATITIS C DATASET")
     st.write("Dataset ini berisi nilai laboratorium donor darah dan pasien Hepatitis C serta nilai demografi seperti usia")
     st.write("Data ini digunakan untuk memodelkan penyakit Hepatitis C")
-    st.write("Fitur - Fitur dalam dataset ini yang akan digunakan ialah sebagai berikut.\n
-            1. ALB (Albumin) \n
-            2. ALP (Alkaline Phosphatase) \n
-            3. ALT (Alanine Transaminase) \n
-            4. AST (Aspartate aminotransferase) \n
-            5. BIL (Bilirubin) \n
-            6. CHE (Cholinesterase) \n
-            7. CHOL (Cholesterol) \n
-            8. CREA (Creatin) \n
-            9. GGT (Gamma-glutamyl transferase) \n
-            10. PROT (Protein)")
+    st.write("Fitur - Fitur dalam dataset ini yang akan digunakan ialah sebagai berikut.")
+    st.write("1. ALB (Albumin) : Numerik ")
+    st.write("2. ALP (Alkaline Phosphatase) : Numerik ")
+    st.write("3. ALT (Alanine Transaminase) : Numerik ")
+    st.write("4. AST (Aspartate aminotransferase) : Numerik ")
+    st.write("5. BIL (Bilirubin) : Numerik ")
+    st.write("6. CHE (Cholinesterase) : Numerik ")
+    st.write("7. CHOL (Cholesterol) : Numerik ")
+    st.write("8. CREA (Creatin) : Numerik ")
+    st.write("9. GGT (Gamma-glutamyl transferase) : Numerik ")
+    st.write("10. PROT (Protein) : Numerik ")
+    st.write("11. Sex : Kategorikal ")
+    st.write("12. Age  : Numerik ")
+    st.write("13. Category : Kategorikal (0 = Blood Donor, 1 = Suspect Blood Donor, 2 = Hepatitis, 3 = Fibrosis, 4 = Cirrhosis ")
     st.write("Sumber Data : https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset")
 
 with tab2:
@@ -48,11 +51,4 @@ with tab2:
         
 with tab3 : 
     st.write("""# Preprocessing""")
-    df.drop('Unnamed: 0',axis=1,inplace=True) 
-    df.replace(to_replace=['0=Blood Donor', '0s=suspect Blood Donor', '1=Hepatitis',
-       '2=Fibrosis', '3=Cirrhosis'],
-             value=['0','1','2','3','4'],inplace=True)
-    df['Category'].unique()
-    df.replace(to_replace=['m','f'],
-             value=['0','1'],inplace=True)
-    st.dataframe(df)
+   
