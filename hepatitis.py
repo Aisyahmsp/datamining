@@ -210,11 +210,11 @@ with tab5 :
 
     # Sex
     sex = st.radio("Sex",('Male', 'Female')
-    if gender == "Male":
+    if sex == "Male":
         gen_Female = 0
         gen_Male = 1
         gen_Other = 0
-    elif gender == "Female" :
+    elif sex == "Female" :
         gen_Female = 1
         gen_Male = 0
         gen_Other = 0
