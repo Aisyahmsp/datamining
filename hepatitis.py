@@ -230,7 +230,7 @@ with tab5 :
 
 
 
-    def submit():
+    def cek():
         # input
         inputs = np.array([[
             Age,
@@ -248,5 +248,5 @@ with tab5 :
     all = st.button("Submit")
     if all :
         st.balloons()
-        submit()
+        cek()
 
