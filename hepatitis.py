@@ -40,6 +40,8 @@ with tab1:
     st.write("12. Age  : Numerik ")
     st.write("13. Category : Kategorikal (0 = Blood Donor, 1 = Suspect Blood Donor, 2 = Hepatitis, 3 = Fibrosis, 4 = Cirrhosis ")
     st.write("Sumber Data : https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset")
+    st.write("Sumber Dataset Cleaning : https://raw.githubusercontent.com/Aisyahmsp/datamining/main/hepatitis.csv")
+    
 
 with tab2:
     st.write("""# Upload File""")
@@ -51,4 +53,72 @@ with tab2:
         
 with tab3 : 
     st.write("""# Preprocessing""")
-   
+    df[["Age", "Sex", "AST", "BIL", "CHE", "CREA", "GGT"]].agg(['min','max'])
+
+    df.Category.value_counts()
+    df = df.drop(columns=["Unnamed: 0","ALB","ALP","ALT","CHOL","PROT"])
+
+    X = df.drop(columns="Category")
+    y = df.Category
+    "### Membuang fitur yang tidak diperlukan"
+    df
+
+    le = preprocessing.LabelEncoder()
+    le.fit(y)
+    y = le.transform(y)
+
+    "### Transformasi Label"
+    y
+
+    le.inverse_transform(y)
+
+    labels = pd.get_dummies(df.Category).columns.values.tolist()
+
+    "### Label"
+    labels
+
+    st.markdown("# Normalize")
+
+    "### Normalize data"
+
+    dataubah=df.drop(columns="Sex")
+    dataubah
+
+    "### Normalize data sex"
+    data_sex=df[['Sex']]
+    sex = pd.get_dummies(data_sex)
+    sex
+
+    dataOlah = pd.concat([sex], axis=1)
+    dataHasil = pd.concat([df,dataOlah], axis = 1)
+
+    X = dataHasil.drop(columns=["Sex","Category"])
+    y = dataHasil.Category
+    "### Normalize data hasil"
+    X
+
+    scaler = MinMaxScaler()
+    scaler.fit(X)
+    X = scaler.transform(X)
+    "### Normalize data transformasi"
+    X
+
+    X.shape, y.shape
+
+    le.inverse_transform(y)
+
+    labels = pd.get_dummies(dataHasil.Category).columns.values.tolist()
+    
+    "### Label"
+    labels
+
+    # """## Normalisasi MinMax Scaler"""
+
+
+    scaler = MinMaxScaler()
+    scaler.fit(X)
+    X = scaler.transform(X)
+    X
+
+    X.shape, y.shape
+
