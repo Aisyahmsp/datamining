@@ -214,7 +214,7 @@ with tab5 :
         gen_Female = 0
         gen_Male = 1
         gen_Other = 0
-    elif sex == "Female" :
+    else :
         gen_Female = 1
         gen_Male = 0
         gen_Other = 0
