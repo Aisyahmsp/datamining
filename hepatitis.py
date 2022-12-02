@@ -82,7 +82,6 @@ with tab3 :
 
     "### Label"
     labels
-
     st.markdown("# Normalize")
 
     "### Normalize data"
