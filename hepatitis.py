@@ -243,7 +243,7 @@ with tab5 :
         nbsave = joblib.load("nbsave.save")
         model1 = joblib.load("nvklasifikasi.joblib")
         y_pred3 = model1.predict(inputs)
-        st.write(f"Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {nbsave.inverse_transform(y_pred3)[0]}")
+        st.write("Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {nbsave.inverse_transform(y_pred3)[0]}")
 
     all = st.button("Submit")
     if all :
