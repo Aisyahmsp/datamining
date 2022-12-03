@@ -152,6 +152,7 @@ with tab4 :
     # Fitting Naive Bayes Classification to the Training set with linear kernel
     nvklasifikasi = GaussianNB()
     nvklasifikasi = nvklasifikasi.fit(X_train, y_train)
+    gnb = joblib.load('gnb.pkl')
 
     # Predicting the Test set results
     y_pred = nvklasifikasi.predict(X_test)
@@ -240,10 +241,10 @@ with tab5 :
             GGT, PROT
             ]])
 
-        le = joblib.load("le.save")
-        model1 = joblib.load("nvklasifikasi.joblib")
-        y_pred3 = model1.predict(inputs)
-        st.write("Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {le.inverse_transform(y_pred3)[0]}")
+        
+        
+        y_pred3 = gnb.predict(inputs)
+        st.write("Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {Category(y_pred3)[0]}")
 
     all = st.button("Submit")
     if all :
