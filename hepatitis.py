@@ -244,8 +244,10 @@ with tab5 :
 
         
         
-        y_pred3 = gnb.predict(inputs)
-        st.write("Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {Category(y_pred3)[0]}")
+        le = joblib.load("le.save")
+        model1 = joblib.load("knn.joblib")
+        y_pred3 = model1.predict(inputs)
+        st.write(f"Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {le.inverse_transform(y_pred3)[0]}")
 
     all = st.button("Submit")
     if all :
