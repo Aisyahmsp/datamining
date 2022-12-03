@@ -1,5 +1,4 @@
 import streamlit as st
-import joblib
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing
@@ -19,6 +18,8 @@ from sklearn.datasets import make_classification
 from sklearn.svm import SVC
 import altair as alt
 from sklearn.utils.validation import joblib
+from sklearn.preprocessing import StandardScaler
+from PIL import Image
 
 st.write(""" 
 # WELCOME TO PREDICT HEPATITIS C SYSTEM
@@ -242,15 +243,27 @@ with tab5 :
             GGT, PROT
             ]])
 
-        
-        
-        le = joblib.load("le.save")
-        model1 = joblib.load("knn.joblib")
-        y_pred3 = model1.predict(inputs)
-        st.write(f"Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {le.inverse_transform(y_pred3)[0]}")
+         le = joblib.load("le.save")
 
+        if akurasi > skor_akurasi and akurasiii:
+            model = joblib.load("nb.joblib")
+
+        elif skor_akurasi > akurasi and akurasiii:
+            model = joblib.load("knn.joblib")
+
+        elif akurasiii > skor_akurasi and akurasi:
+            model = joblib.load("tree.joblib")
+
+        y_pred3 = model.predict(inputs)
+        st.write(f"Berdasarkan data yang Anda masukkan, maka anda diprediksi cenderung : {le.inverse_transform(y_pred3)[0]}")
+        st.write("0 = Blood Donor")
+        st.write("1 = Suspect Blood Donor")
+        st.write("2 = Hepatitis")
+        st.write("3 = Fibrosis")
+        st.write("4 = Cirrhosis")
     all = st.button("Submit")
     if all :
         st.balloons()
-        cek()
-
+        submit()
+        
+      
