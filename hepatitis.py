@@ -153,7 +153,7 @@ with tab4 :
     # Fitting Naive Bayes Classification to the Training set with linear kernel
     nvklasifikasi = GaussianNB()
     nvklasifikasi = nvklasifikasi.fit(X_train, y_train)
-    gnb = joblib.load('gnb.pkl')
+
 
     # Predicting the Test set results
     y_pred = nvklasifikasi.predict(X_test)
