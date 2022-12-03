@@ -243,7 +243,7 @@ with tab5 :
             GGT, PROT
             ]])
 
-         le = joblib.load("le.save")
+        le = joblib.load("le.save")
 
         if akurasi > skor_akurasi and akurasiii:
             model = joblib.load("nb.joblib")
