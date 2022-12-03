@@ -5,4 +5,4 @@ streamlit==1.14.1
 plotly
 altair
 Pillow
-joblib==1.2.0
+joblib
