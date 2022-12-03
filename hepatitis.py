@@ -223,10 +223,10 @@ with tab5 :
     AST = st.number_input('Masukkan Hasil Test AST (Contoh : 17.8000)')
     BIL = st.number_input('Masukkan Hasil Test BIL (Contoh : 9.6000)')
     CHE = st.number_input('Masukkan Hasil Test CHE (Contoh : 5.8200)')
-    CHOL = st.number_input('Masukkan Hasil Test ALB (Contoh : 3.1900)')
-    CREA = st.number_input('Masukkan Hasil Test ALB (Contoh : 106.000)')
-    GGT = st.number_input('Masukkan Hasil Test ALB (Contoh : 46.800)')
-    PROT = st.number_input('Masukkan Hasil Test ALB (Contoh : 47.1000)')               
+    CHOL = st.number_input('Masukkan Hasil Test CHOL (Contoh : 3.1900)')
+    CREA = st.number_input('Masukkan Hasil Test CREA (Contoh : 106.000)')
+    GGT = st.number_input('Masukkan Hasil Test GGT (Contoh : 46.800)')
+    PROT = st.number_input('Masukkan Hasil Test PROT (Contoh : 47.1000)')               
 
 
 
@@ -240,10 +240,10 @@ with tab5 :
             GGT, PROT
             ]])
 
-        nbsave = joblib.load("nbsave.save")
+        le = joblib.load("le.save")
         model1 = joblib.load("nvklasifikasi.joblib")
         y_pred3 = model1.predict(inputs)
-        st.write("Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {nbsave.inverse_transform(y_pred3)[0]}")
+        st.write("Berdasarkan data yang Anda masukkan, maka anda dinyatakan : {le.inverse_transform(y_pred3)[0]}")
 
     all = st.button("Submit")
     if all :
