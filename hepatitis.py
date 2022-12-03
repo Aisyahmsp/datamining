@@ -233,7 +233,7 @@ with tab5 :
 
 
 
-    def cek():
+    def submit():
         # input
         inputs = np.array([[
             Age,
